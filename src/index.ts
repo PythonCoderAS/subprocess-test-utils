@@ -1,4 +1,4 @@
-import { exec } from "child_process";
+import { execFile } from "child_process";
 import { promisify } from "util";
 
 /**
@@ -10,9 +10,7 @@ export async function runScript(
   scriptPath: string,
   args: string[] = []
 ): Promise<boolean> {
-  const childProcPromise = promisify(exec)(
-    ["node", scriptPath, ...args].join(" ")
-  );
+  const childProcPromise = promisify(execFile)(scriptPath, args);
   try {
     await childProcPromise;
   } catch {
@@ -32,9 +30,7 @@ export async function runScriptOutput(
   scriptPath: string,
   args: string[] = []
 ): Promise<{ stdout: string; stderr: string }> {
-  const childProcPromise = promisify(exec)(
-    ["node", scriptPath, ...args].join(" ")
-  );
+  const childProcPromise = promisify(execFile)(scriptPath, args);
   try {
     return await childProcPromise;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
