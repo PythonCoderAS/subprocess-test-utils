@@ -1,12 +1,12 @@
-import { exec } from "child_process";
-import { promisify } from "util";
+import {exec} from "child_process";
+import {promisify} from "util";
 
 /**
  * Returns a boolean indicating whether the given JS script ran successfully or not.
  * @param scriptPath The path to the script to run.
  * @param args The command-line arguments to pass to the script.
  */
-export async function runScript(scriptPath: string, args: string[]): Promise<boolean> {
+export async function runScript(scriptPath: string, args: string[] = []): Promise<boolean> {
   const childProcPromise = promisify(exec)(
     ["node", scriptPath, ...args].join(" ")
   );
@@ -25,7 +25,7 @@ export async function runScript(scriptPath: string, args: string[]): Promise<boo
  * @param args The command-line arguments to pass to the script.
  */
 export async function runScriptOutput(scriptPath: string,
-                                      args: string[]
+                                      args: string[] = []
 ): Promise<{ stdout: string; stderr: string }> {
   const childProcPromise = promisify(exec)(
     ["node", scriptPath, ...args].join(" ")
