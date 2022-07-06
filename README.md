@@ -1,12 +1,27 @@
-# typescript-project-template
+# subprocess-test-utils
 
-Template repo for new TypeScript projects.
+Utility functions for testing subprocesses.
 
-This repo assumes the following:
+## API
 
-- Source code lives in the `src` directory.
-- The main export is located in `src/index.ts`.
-- Tests live in the `test` directory.
-- Each test is name `<name>.test.ts`.
-- The `npm_token`, `app_id`, and `app_private_key` secrets are present in the repo.
-- The code will be a CommonJS module.
+### `runScript(scriptPath: string, args: string[] = []): Promise<boolean>`
+
+Returns a boolean indicating whether the given script ran successfully or not.
+
+**Parameters**
+
+* `scriptPath`: The path to the script to run.
+* `args`: An array of arguments to pass to the script.
+
+**Returns**: A boolean indicating if the script exited successfully (exit code 0) or failed (exit code 1).
+
+### `runScriptOutput(scriptPath: string, args: string[] = []): Promise<boolean>`
+
+Returns the stdout and stderr of the given script.
+
+**Parameters**
+
+* `scriptPath`: The path to the script to run.
+* `args`: An array of arguments to pass to the script.
+
+**Returns**: An object with the `stdout` and `stderr` keys.

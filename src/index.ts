@@ -2,7 +2,7 @@ import { exec } from "child_process";
 import { promisify } from "util";
 
 /**
- * Returns a boolean indicating whether the given JS script ran successfully or not.
+ * Returns a boolean indicating whether the given script ran successfully or not.
  * @param scriptPath The path to the script to run.
  * @param args The command-line arguments to pass to the script.
  */
@@ -23,9 +23,10 @@ export async function runScript(
 }
 
 /**
- * Returns the stdout and stderr of the given JS script.
+ * Returns the stdout and stderr of the given script.
  * @param scriptPath The path to the script to run.
  * @param args The command-line arguments to pass to the script.
+ * @returns An object with `stdout` and `stderr` properties.
  */
 export async function runScriptOutput(
   scriptPath: string,
