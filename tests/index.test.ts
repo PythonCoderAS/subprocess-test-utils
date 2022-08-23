@@ -1,7 +1,8 @@
 import { expect, use } from "chai";
 import * as chaiAsPromised from "chai-as-promised";
-import { runScript, runScriptOutput } from "../src";
 import { join, normalize } from "path";
+
+import { runScript, runScriptOutput } from "../src";
 
 use(chaiAsPromised);
 
