@@ -34,7 +34,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-pythoncoderas-combo": "^1.1.2",
     "mocha": "^10.0.0",
-    "prettier": "^2.7.1",
+    "prettier": "^3.3.3",
     "ts-node": "^10.8.2",
     "typescript": "^5.0.2"
   }
